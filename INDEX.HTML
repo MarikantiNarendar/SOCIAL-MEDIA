@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SocialConnect</title>
+
+<style>
+body{
+font-family:Arial;
+background:#f4f4f4;
+padding:20px;
+}
+
+.post{
+background:white;
+padding:15px;
+margin:10px;
+border:1px solid #ddd;
+}
+
+button{
+padding:8px;
+background:blue;
+color:white;
+border:none;
+cursor:pointer;
+}
+</style>
+
+</head>
+<body>
+
+<h1>SocialConnect</h1>
+
+<h3>Create Post</h3>
+
+<textarea id="postText" rows="4" cols="40"></textarea>
+<br><br>
+
+<button onclick="createPost()">Post</button>
+
+<div id="posts"></div>
+
+<script>
+
+let likes = 0;
+
+function createPost(){
+
+let text=document.getElementById("postText").value;
+
+let post=`
+<div class="post">
+<p>${text}</p>
+
+<button onclick="likePost(this)">
+Like
+</button>
+
+<span>0 Likes</span>
+
+</div>
+`;
+
+document.getElementById("posts").innerHTML += post;
+
+document.getElementById("postText").value="";
+}
+
+function likePost(btn){
+
+let span=btn.nextElementSibling;
+
+let count=parseInt(span.innerText);
+
+count++;
+
+span.innerText=count+" Likes";
+}
+
+</script>
+
+</body>
+</html>

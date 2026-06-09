@@ -1,0 +1,28 @@
+CREATE DATABASE socialmedia;
+
+USE socialmedia;
+
+CREATE TABLE users(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50),
+    password VARCHAR(50)
+);
+
+CREATE TABLE posts(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50),
+    content TEXT
+);
+
+CREATE TABLE comments(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    post_id INT,
+    username VARCHAR(50),
+    comment TEXT
+);
+
+CREATE TABLE likes_table(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    post_id INT,
+    username VARCHAR(50)
+);
